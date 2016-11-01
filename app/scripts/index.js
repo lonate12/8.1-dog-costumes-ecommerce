@@ -1,4 +1,4 @@
-window.$ = window.jQuery = require('jquery');
-require('bootstrap-sass/assets/javascripts/bootstrap');
+var Backbone = require('backbone');
+require('./router.js');
 
-$('.modal').modal('show');
+Backbone.history.start();
