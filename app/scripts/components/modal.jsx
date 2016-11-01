@@ -1,11 +1,14 @@
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass/assets/javascripts/bootstrap');
-require('react-bootstrap/')
 var React = require('react');
 
 var UsernameModal = React.createClass({
   show: function(){
     $('.modal').modal('show');
+  },
+  handleChange: function(e){
+    var user = e.target.value;
+    localStorage.setItem('user', user);
   },
   render: function(){
     return (
@@ -20,7 +23,7 @@ var UsernameModal = React.createClass({
               <form>
                 <div className="form-group">
                   <label htmlFor="cust-name">Enter your name please!</label>
-                  <input type="text" className="form-control" id="cust-name" placeholder="Dan" />
+                  <input onChange={this.handleChange} type="text" className="form-control" id="cust-name" placeholder="Dan Smith" />
                 </div>
                 <button type="submit" className="btn btn-default" data-dismiss="modal">Submit</button>
               </form>

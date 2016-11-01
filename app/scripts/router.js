@@ -13,7 +13,7 @@ var AppRouter = Backbone.Router.extend({
   },
   index: function(){
     ReactDOM.render(
-      React.createElement(UsernameModal),
+      React.createElement(CatalogContainer),
       document.getElementById('app')
     );
   }
