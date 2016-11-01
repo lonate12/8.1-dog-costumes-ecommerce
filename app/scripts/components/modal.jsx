@@ -1,5 +1,6 @@
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass/assets/javascripts/bootstrap');
+require('react-bootstrap/')
 var React = require('react');
 
 var UsernameModal = React.createClass({
@@ -8,7 +9,7 @@ var UsernameModal = React.createClass({
   },
   render: function(){
     return (
-      <div className="modal fade" id="modal" tabindex="-1" role="dialog">
+      <div className="modal fade" id="modal" tabIndex="-1" role="dialog">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
@@ -18,7 +19,7 @@ var UsernameModal = React.createClass({
             <div className="modal-body">
               <form>
                 <div className="form-group">
-                  <label for="cust-name">Enter your name please!</label>
+                  <label htmlFor="cust-name">Enter your name please!</label>
                   <input type="text" className="form-control" id="cust-name" placeholder="Dan" />
                 </div>
                 <button type="submit" className="btn btn-default" data-dismiss="modal">Submit</button>

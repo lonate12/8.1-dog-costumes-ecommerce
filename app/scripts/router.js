@@ -4,6 +4,7 @@ var Backbone = require('backbone');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var UsernameModal = require('./components/modal.jsx').UsernameModal;
+var CatalogContainer = require('./components/catalog.jsx').CatalogContainer;
 
 var AppRouter = Backbone.Router.extend({
   routes: {
