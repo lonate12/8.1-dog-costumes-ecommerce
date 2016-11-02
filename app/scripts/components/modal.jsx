@@ -20,12 +20,12 @@ var UsernameModal = React.createClass({
               <h4 className="modal-title">Enter your name please!</h4>
             </div>
             <div className="modal-body">
-              <form>
+              <form onSubmit={this.props.setUser}>
                 <div className="form-group">
                   <label htmlFor="cust-name">Enter your name please!</label>
                   <input onChange={this.handleChange} type="text" className="form-control" id="cust-name" placeholder="Dan Smith" />
                 </div>
-                <button type="submit" className="btn btn-default" data-dismiss="modal">Submit</button>
+                <button type="submit" className="btn btn-default">Submit</button>
               </form>
             </div>
           </div>
@@ -34,7 +34,11 @@ var UsernameModal = React.createClass({
     );
   },
   componentDidMount: function(){
-    this.show();
+    if(localStorage.getItem('user')){
+      this.setState({user: localStorage.getItem('user')})
+    }else{
+      this.show();
+    }
   }
 });
 
