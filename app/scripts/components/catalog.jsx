@@ -21,9 +21,8 @@ var CatalogContainer = React.createClass({
     e.preventDefault();
     this.setState({user: localStorage.getItem('user')});
   },
-  addToCart: function(e){
-    e.preventDefault();
-    console.log("it worked");
+  addToCart: function(itemToAdd){
+    console.log(itemToAdd);;
   },
   componentWillMount:function(){
     var self = this;
