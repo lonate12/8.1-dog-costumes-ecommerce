@@ -8,7 +8,6 @@ var CatalogContainer = require('./components/catalog.jsx').CatalogContainer;
 var AppRouter = Backbone.Router.extend({
   routes: {
     '': 'index',
-
   },
   index: function(){
     ReactDOM.render(
