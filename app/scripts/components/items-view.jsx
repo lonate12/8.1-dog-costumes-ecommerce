@@ -1,6 +1,10 @@
 var React = require('react');
 
 var ItemsView = React.createClass({
+  handleSubmit: function(e){
+    e.preventDefault();
+    console.log(e.target[1].value);
+  },
   render: function(){
     var self = this;
     var items = this.props.inventoryCollection.map(function(item){
@@ -10,7 +14,9 @@ var ItemsView = React.createClass({
             <img src={'dist/'+item.get('image')} alt={item.get('name')} className="item-image"></img>
             <h3>{item.get('name')}</h3>
             <p>Your dog is cute, this will make them cuter!</p>
-              <form onSubmit={self.props.addToCart} className="form-inline">
+              <form
+                onSubmit={self.handleSubmit}
+                className="form-inline">
                 <select className="form-control">
                   <option>Qty</option>
                   <option>1</option>
