@@ -21,12 +21,25 @@ var CatalogContainer = React.createClass({
       currentCart: currentCart
     }
   },
+  toLocalStorage: function(collection){
+    var jsonCart = JSON.stringify(collection.toJSON());
+    localStorage.setItem('cart', jsonCart);
+  },
+  fromLocalStorage: function(){
+    var toCollection = JSON.parse(localStorage.getItem('cart'));
+    this.state.currentCart.reset(toCollection);
+    this.setState({currentCart: this.state.currentCart});
+  },
   setUser: function(e){
     e.preventDefault();
     this.setState({user: localStorage.getItem('user')});
   },
   addToCart: function(itemToAdd){
-    console.log(itemToAdd);
+    var currentCart = this.state.currentCart;
+    this.fromLocalStorage();
+    currentCart.add(itemToAdd);
+    this.setState({currentCart: currentCart});
+    this.toLocalStorage(currentCart);
   },
   componentWillMount:function(){
     var self = this;
