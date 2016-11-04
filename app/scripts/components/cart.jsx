@@ -22,7 +22,8 @@ var CartTable = React.createClass({
       var timeTillExpire = item.time_expires - currentTime;
 
       if(currentTime > item.time_expires){
-        time='expired'
+        time='expired';
+        self.handleRemoveItem(index);
       }else{
         var minutes = ((timeTillExpire/60000)%60).toFixed(0);
         minutes = (minutes < 10) ? '0' + minutes : minutes;
