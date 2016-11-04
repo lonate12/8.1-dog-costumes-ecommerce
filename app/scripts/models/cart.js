@@ -6,7 +6,7 @@ var CartItem = Backbone.Model.extend({
   idAttribute: 'cid'
 });
 
-window.CartItemCollection = Backbone.Collection.extend({
+var CartItemCollection = Backbone.Collection.extend({
   // localStorage: new Backbone.LocalStorage('cartContents'),
   model: CartItem
 });

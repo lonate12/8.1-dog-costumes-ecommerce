@@ -10,7 +10,7 @@ var Template = React.createClass({
             <img src="..." alt="..."></img>
             <ul className="list-inline">
               <li><a href="#">Catalog</a></li>
-              <li><a href="#/cart">Cart</a></li>
+              <li><a href="#/cart/">Cart</a></li>
             </ul>
             <span>Hey {localStorage.getItem('user') ? localStorage.getItem('user') : 'person'}!</span>
           </nav>
