@@ -3,8 +3,20 @@ var Template = require('./layout/template.jsx').Template;
 var CartItemCollection = require('../models/cart.js').CartItemCollection;
 
 var CartTable = React.createClass({
+  getInitialState: function(){
+    return{
+      cart: this.props.cartItems
+    }
+  },
+  handleRemoveItem: function(indexOfItem){
+    var cartArray = this.state.cart;
+    var newCartArray = cartArray.filter(function(items, index){return index != indexOfItem});
+    this.setState({cart: newCartArray});
+    this.props.setNewCartState(newCartArray);
+  },
   render: function(){
-    var tableItems = this.props.cartItems.map(function(item, index){
+    var self = this;
+    var tableItems = this.state.cart.map(function(item, index){
       var currentTime = new Date().getTime();
       var time;
       var timeTillExpire = item.time_expires - currentTime;
@@ -27,7 +39,7 @@ var CartTable = React.createClass({
           <td className="table-item">{item.size}</td>
           <td className="table-item">{item.quantity}</td>
           <td className="table-item">{time}</td>
-          <td className="table-item"><button className="btn btn-danger">Remove</button></td>
+          <td className="table-item"><button onClick={function(){self.handleRemoveItem(index)}} className="btn btn-danger">Remove</button></td>
         </tr>
       );
     });
@@ -56,6 +68,14 @@ var CartContainer = React.createClass({
       cartItems: cartItems
     };
   },
+  store: function(cart){
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log('stored');
+  },
+  setNewCartState: function(newCartArray){
+    this.setState({cartItems: newCartArray});
+    this.store(newCartArray);
+  },
   componentWillMount: function(){
     var cartContents = localStorage.getItem('cart');
     var cartItems = JSON.parse(cartContents);
@@ -66,7 +86,7 @@ var CartContainer = React.createClass({
     return (
       <Template>
         <div className="row">
-          <CartTable cartItems={this.state.cartItems} />
+          <CartTable cartItems={this.state.cartItems} setNewCartState={this.setNewCartState}/>
         </div>
       </Template>
     );
