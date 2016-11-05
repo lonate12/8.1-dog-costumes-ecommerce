@@ -22,7 +22,7 @@ var UsernameModal = React.createClass({
             <div className="modal-body">
               <form onSubmit={this.props.setUser}>
                 <div className="form-group">
-                  <label htmlFor="cust-name">Enter your name please!</label>
+                  <label htmlFor="cust-name">Woof!</label>
                   <input onChange={this.handleChange} type="text" className="form-control" id="cust-name" placeholder="Dan Smith" />
                 </div>
                 <button type="submit" className="btn btn-default">Submit</button>

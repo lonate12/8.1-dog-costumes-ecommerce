@@ -6,7 +6,7 @@ var Template = React.createClass({
       <div className="container">
         <header>
           <nav>
-            <span>Boo or Bark</span>
+            <span id="company-name">Boo or Bark {'}'}</span>
             <img src="..." alt="..."></img>
             <ul className="list-inline">
               <li><a href="#">Catalog</a></li>

@@ -5,13 +5,38 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 // Import Bootstrap
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
-
+@font-face {
+  font-family: 'puppy';
+  src: url('../fonts/PuppyBellies.ttf');
+}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+body{
+  font-family: 'puppy';
+}
+
 img {
   max-width: 100%;
+}
+
+.modal-content{
+  background-image: url('../images/modal-bg.jpg');
+  background-size: cover;
+  background-position: 0px -68px;
+  font-family: 'puppy';
+  .modal-header{
+    color: white;
+    border: none;
+  }
+  label{
+    color: white;
+  }
+}
+
+#company-name{
+  font-size: 25px;
 }
